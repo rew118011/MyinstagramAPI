@@ -1,4 +1,4 @@
-function addImagestoGallery = (res) => {
+const addImagestoGallery = (res) => {
   const gallery = document.querySelector(".gallery");
   let html = "";
   res.results.forEach((element) => {
@@ -45,7 +45,7 @@ function addImagestoGallery = (res) => {
   gallery.innerHTML = html;
 };
 
-function callAPI = async (keyword) => {
+const callAPI = async (keyword) => {
   try {
     console.log("keyword --> ", keyword);
     const response = await fetch("/api/searchPhotos", {
@@ -66,12 +66,12 @@ function callAPI = async (keyword) => {
   }
 };
 
-function removeAllPhoto = () => {
+const removeAllPhoto = () => {
   const galleryElement = document.querySelector(".gallery");
   galleryElement.innerHTML = "";
 };
  
-function searchPhoto = (event) => { // = กำหนดค่า  == เทียบค่า2ฝั่งเท่ากับ === ค่าและชนิด
+const searchPhoto = (event) => { // = กำหนดค่า  == เทียบค่า2ฝั่งเท่ากับ === ค่าและชนิด
   const keyword = event.target.value;
   if (event.key === "Enter" && keyword) {
     removeAllPhoto();
@@ -79,7 +79,7 @@ function searchPhoto = (event) => { // = กำหนดค่า  == เที�
     callAPI(keyword);
   }
 };
-function main = () => {
+const main = () => {
   //มันกำลังหาองค์ประกอบของ class search เก็บไว้ที่ inputElement
   const inputElement = document.querySelector(".search");
                       //function addEventListener เพิ่มตัวที่คอยรับฟังเหตุการณ์
